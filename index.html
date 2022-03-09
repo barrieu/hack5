@@ -25,8 +25,8 @@
   </body>
 
   <script>
-        function setupAudio(){
-          console.log("setting up audiocontext at ver 5 ");
+        //function setupAudio(){
+          console.log("setting up audiocontext at ver 6 ");
           const audioContext = new AudioContext();
           const element = document.querySelector("audio");
           const source = audioContext.createMediaElementSource(element);
@@ -36,18 +36,18 @@
           source.connect(gainNode);
           gainNode.connect(audioContext.destination);
 
-          return source;
+          //return source;
           //source.connect(audioContext.destination);
-        };
+        //};
 
-        function dummyPress(){
-            console.log("requesting the audio setup");
-            source = setupAudio();
-            return source;
-        };
+        // function dummyPress(){
+        //     console.log("requesting the audio setup");
+        //     source = setupAudio();
+        //     return source;
+        // };
 
-        function playTheTones(source){
-          setTimeout(function(source){
+        function playTheTones(){
+          setTimeout(function(){
                                  source.currentTime = 2;
                                  gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
                                  source.play();
