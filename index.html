@@ -21,11 +21,11 @@
   <body>
     <div id="jspsych_target"></div>
     <button onclick="dummyPress()">Press to Activate Audio</button>
-    <button onclick="playTheTones(element)">sound the tone</button>
+    <button onclick="playTheTones()">sound the tone</button>
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 3 ");
+  console.log("setting up audiocontext at ver 4 ");
 
   function dummyPress(){
     const audioContext = new AudioContext();
@@ -38,7 +38,7 @@
     gainNode.connect(audioContext.destination);
   }
 
-  function playTheTones(element){
+  //function playTheTones(){
        element.currentTime = 2;
        gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
        element.play();
@@ -64,7 +64,7 @@
 
           },2000);
 
-      };
+      //};
 
         // function playTheTones(source){
         //   setTimeout(function(source){
