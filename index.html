@@ -14,7 +14,7 @@
     <script type = "text/javascript" src="createToneList.js"></script> -->
     <!-- <script type = "text/javascript" src="audioStuff.js"></script> -->
     <audio id="audio" src="oodlesOfSounds.ogg"></audio>
-
+    <script type = "text/javascript" src="setupAudio.js"></script>
 
   </head>
 
@@ -25,10 +25,10 @@
 
   <script>
       //function dummyPress(){
-        const audioContext = new AudioContext();
-        const element = document.querySelector("audio");
-        const source = audioContext.createMediaElementSource(element);
-        source.connect(audioContext.destination);
+        // const audioContext = new AudioContext();
+        // const element = document.querySelector("audio");
+        // const source = audioContext.createMediaElementSource(element);
+        // source.connect(audioContext.destination);
 
         function dummyPress(){
           setTimeout(function(){
