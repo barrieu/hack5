@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 8 ");
+  console.log("setting up audiocontext at ver 9 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -47,7 +47,7 @@
 
        setTimeout(function(){
          gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
-       },4800);
+       },900);
 
        element.play();
        console.log("PLAYING 2   " + element.currentTime);
@@ -55,15 +55,15 @@
          element.pause();
          clearInterval(k);
          console.log("STOPPED");
-       },5000);
+       },1000);
 
        setTimeout(function(){
             element.currentTime = 250;
             gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
 
             setTimeout(function(){
-              gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-            },0.9);
+              gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
+            },900);
 
             element.play();
             console.log("PLAYING 250   " + element.currentTime);
@@ -73,7 +73,7 @@
               console.log("STOPPED");
             },1000);
 
-          },7000);
+          },2000);
 
       };
 
