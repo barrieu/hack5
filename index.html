@@ -25,12 +25,12 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 6 ");
+  console.log("setting up audiocontext at ver 7 ");
   const audioContext = new AudioContext();
 
   function dummyPress(){
     //const audioContext = new AudioContext();
-    //audioContext.crossOrigin = 'anonymous';
+    audioContext.resume();
     //audioContext.src = "oodlesOfSounds.ogg";
     const element = document.querySelector("audio");
     const source = audioContext.createMediaElementSource(element);
