@@ -45,31 +45,58 @@
 
         function playTheTones(){
           setTimeout(function(){
-                                 audio.currentTime = 2;
+                                 source.currentTime = 2;
                                  gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
-                                 audio.play();
+                                 source.play();
                                  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
                                  console.log("PLAYING 2");
                                  var k = setInterval(function(){
-
-                                   audio.pause();
+                                   source.pause();
                                    clearInterval(k);
                                    console.log("STOPPED");
                                  },1000);
                                },10);
 
          setTimeout(function(){
-                                audio.currentTime = 10;
+                                source.currentTime = 10;
                                 gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
-                                audio.play();
+                                source.play();
                                 console.log("PLAYING 10");
                                 var k = setInterval(function(){
-                                  audio.pause();
+                                  source.pause();
                                   clearInterval(k);
                                   console.log("STOPPED");
                                 },1000);
                               },1510);
         };
+
+        // function playTheTones(){
+        //   setTimeout(function(){
+        //                          audio.currentTime = 2;
+        //                          gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
+        //                          audio.play();
+        //                          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
+        //                          console.log("PLAYING 2");
+        //                          var k = setInterval(function(){
+        //
+        //                            audio.pause();
+        //                            clearInterval(k);
+        //                            console.log("STOPPED");
+        //                          },1000);
+        //                        },10);
+        //
+        //  setTimeout(function(){
+        //                         audio.currentTime = 10;
+        //                         gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
+        //                         audio.play();
+        //                         console.log("PLAYING 10");
+        //                         var k = setInterval(function(){
+        //                           audio.pause();
+        //                           clearInterval(k);
+        //                           console.log("STOPPED");
+        //                         },1000);
+        //                       },1510);
+        // };
 
 
   </script>
