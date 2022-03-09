@@ -25,7 +25,7 @@
 
   <script>
 
-    function dummyPress(){
+    //function dummyPress(){
       const audioContext = new AudioContext();
       const element = document.querySelector("audio");
       const source = audioContext.createMediaElementSource(element);
@@ -33,21 +33,18 @@
 
       // audio.currentTime = 2;
       // audio.play();
-
-      setTimeout(function(){
-                             audio.currentTime = 2;
-                             audio.play();
-                             console.log("PLAYING");
-                             var k = setInterval(function(){
-                               audio.pause();
-                               clearInterval(k);
-                               console.log("STOPPED");
-                             },1000);
-                           },1100);
-
-
-
-    };
+      function dummyPress(){
+          setTimeout(function(){
+                                 audio.currentTime = 2;
+                                 audio.play();
+                                 console.log("PLAYING");
+                                 var k = setInterval(function(){
+                                   audio.pause();
+                                   clearInterval(k);
+                                   console.log("STOPPED");
+                                 },1000);
+                               },1100);
+        };
 
 
   </script>
