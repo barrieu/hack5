@@ -25,8 +25,10 @@
   </body>
 
   <script>
-        //function setupAudio(){
-          console.log("setting up audiocontext at ver 7 ");
+  console.log("setting up audiocontext at ver 1 ");
+
+        function dummyPress(){
+
           const audioContext = new AudioContext();
           const element = document.querySelector("audio");
           const source = audioContext.createMediaElementSource(element);
@@ -36,70 +38,57 @@
           source.connect(gainNode);
           gainNode.connect(audioContext.destination);
 
-          //return source;
-          //source.connect(audioContext.destination);
-        //};
 
-        // function dummyPress(){
-        //     console.log("requesting the audio setup");
-        //     source = setupAudio();
-        //     return source;
-        // };
+       source.currentTime = 2;
+       gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
+       source.play();
+       gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
+       console.log("PLAYING 2");
+       var k = setInterval(function(){
+         source.pause();
+         clearInterval(k);
+         console.log("STOPPED");
+       },1000);
 
-        function playTheTones(source){
-          setTimeout(function(source){
-                                 source.currentTime = 2;
-                                 gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
-                                 source.play();
-                                 gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
-                                 console.log("PLAYING 2");
-                                 var k = setInterval(function(){
-                                   source.pause();
-                                   clearInterval(k);
-                                   console.log("STOPPED");
-                                 },1000);
-                               },10);
 
-         setTimeout(function(){
-                                source.currentTime = 10;
-                                gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
-                                source.play();
-                                console.log("PLAYING 10");
-                                var k = setInterval(function(){
-                                  source.pause();
-                                  clearInterval(k);
-                                  console.log("STOPPED");
-                                },1000);
-                              },1510);
-        };
+        source.currentTime = 10;
+        gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
+        source.play();
+        console.log("PLAYING 10");
+        var k = setInterval(function(){
+          source.pause();
+          clearInterval(k);
+          console.log("STOPPED");
+        },1000);
+      }
 
-        // function playTheTones(){
-        //   setTimeout(function(){
-        //                          audio.currentTime = 2;
+        // function playTheTones(source){
+        //   setTimeout(function(source){
+        //                          source.currentTime = 2;
         //                          gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
-        //                          audio.play();
+        //                          source.play();
         //                          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
         //                          console.log("PLAYING 2");
         //                          var k = setInterval(function(){
-        //
-        //                            audio.pause();
+        //                            source.pause();
         //                            clearInterval(k);
         //                            console.log("STOPPED");
         //                          },1000);
         //                        },10);
         //
         //  setTimeout(function(){
-        //                         audio.currentTime = 10;
+        //                         source.currentTime = 10;
         //                         gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
-        //                         audio.play();
+        //                         source.play();
         //                         console.log("PLAYING 10");
         //                         var k = setInterval(function(){
-        //                           audio.pause();
+        //                           source.pause();
         //                           clearInterval(k);
         //                           console.log("STOPPED");
         //                         },1000);
         //                       },1510);
         // };
+
 
 
   </script>
