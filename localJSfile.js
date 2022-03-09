@@ -6,11 +6,7 @@ const jsPsych = initJsPsych();
 //var audio= document.getElementById("myaudio_oneHundred_tones");
 //var tonesToPlay = [1,80,1,1];
 
-const audioCtx = new AudioContext();
-const audio = new Audio("oodlesOfSounds.ogg");
 
-const source = audioCtx.createMediaElementSource(audio);
-source.connect(audioCtx.destination);
 
 function initialStuff(){
 
@@ -45,51 +41,6 @@ function initialStuff(){
     };
     timeline.push(hello_trial);
 
-// ******** REPEAT THIS UNTIL Q PRESSED *******************
-// This just demonstrates how to end a nested loopTimeline
-// *********************************************************
-// COMMENT OUT FOR CONVINIENCE
-
-    // const star_trial_1 = {
-    //   type: jsPsychHtmlKeyboardResponse,
-    //   stimulus: '***** 1 ******',
-    //   choices: "NO_KEYS",
-    //   trial_duration: 2000
-    // };
-    //
-    // const star_trial_2 = {
-    //   type: jsPsychHtmlKeyboardResponse,
-    //   stimulus: 'press Q to quit loop or E to continue',
-    //   choices: ['q','e'],
-    //   response_ends_trial: true,
-    //   //trial_duration: 1000,
-    // };
-    //
-    // function endTheLoopFunc() {
-    //   var lastKeypressStringify = JSON.stringify(jsPsych.data.getLastTrialData());
-    //   var userPressedKey = lastKeypressStringify.substring(lastKeypressStringify.indexOf('"response":') + 11).substring(1,2);
-    //   console.log('userPressedKey = ' + userPressedKey  + '    ' + lastKeypressStringify);
-    //   if (userPressedKey === 'q'){
-    //     jsPsych.endCurrentTimeline();
-    //   }
-    // };
-    //
-    // var endTheLoop = {
-    //   type: jsPsychCallFunction,
-    //   func: endTheLoopFunc
-    // };
-    //
-    // var loop_node_1 = {
-    //   timeline: [star_trial_1, star_trial_2, endTheLoop],
-    //   repetitions: 60
-    // };
-    // timeline.push(loop_node_1);
-// ************************************************
-
-
-
-
-
 
     function playTheTonesFunction(){
       // var version = jsPsych.version();
@@ -101,7 +52,7 @@ function initialStuff(){
       //console.log("reporting location "  + tonesToPlay[4]);
       //console.log(tonesToPlay[0] + " " + tonesToPlay[1] + " "  + tonesToPlay[2] + " "  + tonesToPlay[3]);
 
-      playList1([ tonesToPlay[0],tonesToPlay[1],tonesToPlay[2],tonesToPlay[3] ]);
+      playList1([ tonesToPlay[0],tonesToPlay[1],tonesToPlay[2],tonesToPlay[3] ], audio);
 
       jsPsych.pauseExperiment();
       setTimeout(jsPsych.resumeExperiment, 5000);

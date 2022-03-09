@@ -10,10 +10,11 @@
     <!-- <audio id="myaudio_oneHundred_tones" src="oneHundredTones.mp3" preload="auto"></audio> -->
     <!-- <audio id="myaudio_oneHundred_tones" src="oodlesOfSounds.mp3" preload="auto"></audio> -->
     <!-- <audio id="myaudio_oneHundred_tones" src="oodlesOfSounds.ogg" preload="auto"></audio> -->
-    <!-- <script type = "text/javascript" src="localJSfile.js"></script>
-    <script type = "text/javascript" src="createToneList.js"></script> -->
-    <!-- <script type = "text/javascript" src="audioStuff.js"></script> -->
-    <audio id="audio" src="oodlesOfSounds.ogg"></audio>
+    <script type = "text/javascript" src="localJSfile.js"></script>
+    <script type = "text/javascript" src="createToneList.js"></script>
+    <script type = "text/javascript" src="setupAudio.js"></script>
+    <script type = "text/javascript" src="audioStuff.js"></script>
+
 
 
   </head>
@@ -26,17 +27,15 @@
   <script>
 
     function dummyPress(){
-      const audioContext = new AudioContext();
-      const element = document.querySelector("audio");
-      const source = audioContext.createMediaElementSource(element);
-      source.connect(audioContext.destination)
-      audio.play();
+      console.log("Activate Audio");
+      //playTone(50);
+      setTimeout(afterWait,1000);
     };
-    //
-    // function afterWait(){
-    //     var timeline = initialStuff();
-    //     jsPsych.run(timeline);
-    // };
+
+    function afterWait(){
+        var timeline = initialStuff();
+        jsPsych.run(timeline);
+    };
 
     //setTimeout(afterWait,5000);
 
