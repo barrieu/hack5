@@ -26,11 +26,16 @@
 
   <script>
         function setupAudio(){
-          console.log("setting up audiocontext");
+          console.log("setting up audiocontext at ver 1 ");
           const audioContext = new AudioContext();
           const element = document.querySelector("audio");
           const source = audioContext.createMediaElementSource(element);
-          source.connect(audioContext.destination);
+          const gainNode = audioContext.createGain();
+
+          gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+          source.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          //source.connect(audioContext.destination);
         };
 
         function dummyPress(){
