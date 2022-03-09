@@ -42,13 +42,24 @@
           setTimeout(function(){
                                  audio.currentTime = 2;
                                  audio.play();
-                                 console.log("PLAYING");
+                                 console.log("PLAYING 2");
                                  var k = setInterval(function(){
                                    audio.pause();
                                    clearInterval(k);
                                    console.log("STOPPED");
                                  },1000);
-                               },1100);
+                               },10);
+
+         setTimeout(function(){
+                                audio.currentTime = 10;
+                                audio.play();
+                                console.log("PLAYING 10");
+                                var k = setInterval(function(){
+                                  audio.pause();
+                                  clearInterval(k);
+                                  console.log("STOPPED");
+                                },1500);
+                              },10);
         };
 
 
