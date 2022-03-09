@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 3 ");
+  console.log("setting up audiocontext at ver 4 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -51,7 +51,7 @@
          element.pause();
          clearInterval(k);
          console.log("STOPPED");
-       },5000);
+       },1000);
 
        setTimeout(function(){
             element.currentTime = 250;
@@ -65,7 +65,7 @@
               console.log("STOPPED");
             },1000);
 
-          },7000);
+          },2000);
 
       };
 
