@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 1 ");
+  console.log("setting up audiocontext at ver 2 ");
 
         function dummyPress(){
 
@@ -41,11 +41,11 @@
 
        source.currentTime = 2;
        gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
-       source.play();
+       element.play();
        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
        console.log("PLAYING 2");
        var k = setInterval(function(){
-         source.pause();
+         element.pause();
          clearInterval(k);
          console.log("STOPPED");
        },1000);
@@ -53,10 +53,10 @@
 
         source.currentTime = 10;
         gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
-        source.play();
+        element.play();
         console.log("PLAYING 10");
         var k = setInterval(function(){
-          source.pause();
+          element.pause();
           clearInterval(k);
           console.log("STOPPED");
         },1000);
