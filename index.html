@@ -21,6 +21,7 @@
   <body>
     <div id="jspsych_target"></div>
     <button onclick="dummyPress()">Press to Activate Audio</button>
+    <button onclick="playTheTones()">sound the tone</button>
   </body>
 
   <script>
@@ -31,6 +32,11 @@
         // source.connect(audioContext.destination);
 
         function dummyPress(){
+            console.log("requesting the audio setup");
+            setupAudio();
+        };
+
+        function playTheTones(){
           setTimeout(function(){
                                  audio.currentTime = 2;
                                  audio.play();
