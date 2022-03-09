@@ -46,9 +46,12 @@
         function playTheTones(){
           setTimeout(function(){
                                  audio.currentTime = 2;
+                                 gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
                                  audio.play();
+                                 gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.9);
                                  console.log("PLAYING 2");
                                  var k = setInterval(function(){
+
                                    audio.pause();
                                    clearInterval(k);
                                    console.log("STOPPED");
@@ -57,6 +60,7 @@
 
          setTimeout(function(){
                                 audio.currentTime = 10;
+                                gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
                                 audio.play();
                                 console.log("PLAYING 10");
                                 var k = setInterval(function(){
