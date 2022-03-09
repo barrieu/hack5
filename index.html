@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 7 ");
+  console.log("setting up audiocontext at ver 8 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -46,7 +46,7 @@
        gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
 
        setTimeout(function(){
-         gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+         gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
        },4800);
 
        element.play();
