@@ -29,16 +29,25 @@
       const audioContext = new AudioContext();
       const element = document.querySelector("audio");
       const source = audioContext.createMediaElementSource(element);
-      source.connect(audioContext.destination)
-      audio.play();
-    };
-    //
-    // function afterWait(){
-    //     var timeline = initialStuff();
-    //     jsPsych.run(timeline);
-    // };
+      source.connect(audioContext.destination);
 
-    //setTimeout(afterWait,5000);
+      audio.currentTime = 2;
+      audio.play();
+
+      setTimeout(function(){
+                             audio.currentTime = 2;
+                             audio.play();
+                             console.log("PLAYING");
+                             var k = setInterval(function(){
+                               audio.pause();
+                               clearInterval(k);
+                               console.log("STOPPED");
+                             },1000);
+                           },1100);
+
+
+
+    };
 
 
   </script>
