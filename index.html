@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 2 ");
+  console.log("setting up audiocontext at ver 3 ");
 
         function dummyPress(){
 
@@ -52,7 +52,7 @@
 
 
         source.currentTime = 10;
-        gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
+        gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
         element.play();
         console.log("PLAYING 10");
         var k = setInterval(function(){
