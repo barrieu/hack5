@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 4 ");
+  console.log("setting up audiocontext at ver 5 ");
 
   function dummyPress(){
     const audioContext = new AudioContext();
@@ -36,7 +36,7 @@
     gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
     source.connect(gainNode);
     gainNode.connect(audioContext.destination);
-  }
+
 
   //function playTheTones(){
        element.currentTime = 2;
@@ -64,7 +64,7 @@
 
           },2000);
 
-      //};
+      };
 
         // function playTheTones(source){
         //   setTimeout(function(source){
