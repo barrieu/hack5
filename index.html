@@ -25,25 +25,25 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 1 ");
+  console.log("setting up audiocontext at ver 2 ");
 
-        function dummyPress(){
+  function dummyPress(){
+    const audioContext = new AudioContext();
+    const element = document.querySelector("audio");
+    const source = audioContext.createMediaElementSource(element);
+    const gainNode = audioContext.createGain();
 
-          const audioContext = new AudioContext();
-          const element = document.querySelector("audio");
-          const source = audioContext.createMediaElementSource(element);
-          const gainNode = audioContext.createGain();
+    gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+    source.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+  }
 
-          gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
-          source.connect(gainNode);
-          gainNode.connect(audioContext.destination);
-
-
+  function playTheTones(){
        element.currentTime = 2;
        gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
        element.play();
        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
-       console.log("PLAYING 2   " + source.currentTime);
+       console.log("PLAYING 2   " + element.currentTime);
        var k = setInterval(function(){
          element.pause();
          clearInterval(k);
@@ -55,7 +55,7 @@
             gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
             element.play();
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
-            console.log("PLAYING 100   " + source.currentTime);
+            console.log("PLAYING 100   " + element.currentTime);
             var k = setInterval(function(){
               element.pause();
               clearInterval(k);
@@ -64,7 +64,7 @@
 
           },2000);
 
-      }
+      };
 
         // function playTheTones(source){
         //   setTimeout(function(source){
