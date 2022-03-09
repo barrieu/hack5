@@ -25,7 +25,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 9 ");
+  console.log("setting up audiocontext at ver 10 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -47,6 +47,7 @@
     // gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
     // source.connect(gainNode);
     // gainNode.connect(audioContext.destination);
+  };
 
 
   function playTheTones(){
