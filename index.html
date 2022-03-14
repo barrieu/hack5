@@ -13,6 +13,7 @@
     <!-- <script type = "text/javascript" src="localJSfile.js"></script>
     <script type = "text/javascript" src="createToneList.js"></script> -->
     <!-- <script type = "text/javascript" src="audioStuff.js"></script> -->
+    <!-- <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio> -->
     <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio>
     <!-- <script type = "text/javascript" src="setupAudio.js"></script> -->
 
@@ -25,7 +26,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 1 ");
+  console.log("setting up audiocontext at ver 2 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
