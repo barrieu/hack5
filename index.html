@@ -18,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 4 ");
+  console.log("setting up audiocontext at ver 5 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -35,33 +35,33 @@
 
 
   function playTheTones(){
-       element.currentTime = 2;
+       source.currentTime = 2;
        gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
 
        setTimeout(function(){
          gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
        },900);
 
-       element.play();
+       source.start();
        console.log("PLAYING 2   " + element.currentTime);
        var k = setInterval(function(){
-         element.pause();
+         source.pause();
          clearInterval(k);
          console.log("STOPPED");
        },1000);
 
        setTimeout(function(){
-            element.currentTime = 250;
+            source.currentTime = 250;
             gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
 
             setTimeout(function(){
               gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
             },900);
 
-            element.play();
+            source.start();
             console.log("PLAYING 250   " + element.currentTime);
             var k = setInterval(function(){
-              element.pause();
+              source.pause();
               clearInterval(k);
               console.log("STOPPED");
             },1000);
