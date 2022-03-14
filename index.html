@@ -7,15 +7,7 @@
     <script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.0"></script>
     <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" />
 
-    <!-- <audio id="myaudio_oneHundred_tones" src="oneHundredTones.mp3" preload="auto"></audio> -->
-    <!-- <audio id="myaudio_oneHundred_tones" src="oodlesOfSounds.mp3" preload="auto"></audio> -->
-    <!-- <audio id="myaudio_oneHundred_tones" src="oodlesOfSounds.ogg" preload="auto"></audio> -->
-    <!-- <script type = "text/javascript" src="localJSfile.js"></script>
-    <script type = "text/javascript" src="createToneList.js"></script> -->
-    <!-- <script type = "text/javascript" src="audioStuff.js"></script> -->
-    <!-- <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio> -->
     <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio>
-    <!-- <script type = "text/javascript" src="setupAudio.js"></script> -->
 
   </head>
 
@@ -26,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 3 ");
+  console.log("setting up audiocontext at ver 4 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -77,34 +69,6 @@
           },1000);
 
       };
-
-        // function playTheTones(source){
-        //   setTimeout(function(source){
-        //                          source.currentTime = 2;
-        //                          gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
-        //                          source.play();
-        //                          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.9);
-        //                          console.log("PLAYING 2");
-        //                          var k = setInterval(function(){
-        //                            source.pause();
-        //                            clearInterval(k);
-        //                            console.log("STOPPED");
-        //                          },1000);
-        //                        },10);
-        //
-        //  setTimeout(function(){
-        //                         source.currentTime = 10;
-        //                         gainNode.gain.exponentialRampToValueAtTime(1.0, audioCtx.currentTime + 0.1);
-        //                         source.play();
-        //                         console.log("PLAYING 10");
-        //                         var k = setInterval(function(){
-        //                           source.pause();
-        //                           clearInterval(k);
-        //                           console.log("STOPPED");
-        //                         },1000);
-        //                       },1510);
-        // };
-
 
 
   </script>
