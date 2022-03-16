@@ -18,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 8 ");
+  console.log("setting up audiocontext at ver 9 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -37,40 +37,36 @@
   function playTheTones(){
        element.currentTime = 2;
        //gainNode.gain.exponentialRampToValueAtTime(1.0, 2);
-       gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.5);
+       gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
+       gainNode.gain.setTargetAtTime(0.001, audioContext.currentTime + 0.9, 0.1);
 
-       var g = setTimeout(function(){
-         //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
-         gainNode.gain.setTargetAtTime(0.001, audioContext.currentTime, 0.5);
-         console.log("start Down @   " + element.currentTime);
-         //clearTimeout(g);
-       },2000);
+       // var g = setTimeout(function(){
+       //   //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
+       //   gainNode.gain.setTargetAtTime(0.001, audioContext.currentTime, 0.1);
+       //   console.log("start Down @   " + element.currentTime);
+       //   //clearTimeout(g);
+       // },900);
 
        element.play();
-       console.log("PLAYING now @   " + element.currentTime);
+       console.log("PLAYING 2 now @   " + element.currentTime);
        var k = setTimeout(function(){
          element.pause();
-         //clearInterval(k);
          console.log("STOPPED @   " + element.currentTime);
-       },4000);
+       },1000);
 
-       // setTimeout(function(){
-       //      element.currentTime = 250;
-       //      gainNode.gain.exponentialRampToValueAtTime(1.0, audioContext.currentTime + 0.1);
-       //
-       //      setTimeout(function(){
-       //        gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
-       //      },900);
-       //
-       //      element.play();
-       //      console.log("PLAYING 250   " + element.currentTime);
-       //      var k = setInterval(function(){
-       //        element.pause();
-       //        clearInterval(k);
-       //        console.log("STOPPED");
-       //      },1000);
-       //
-       //    },1000);
+       setTimeout(function(){
+         element.currentTime = 250;
+         gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
+         gainNode.gain.setTargetAtTime(0.001, audioContext.currentTime + 0.9, 0.1);
+
+         element.play();
+         console.log("PLAYING 250 now @   " + element.currentTime);
+         var k = setTimeout(function(){
+           element.pause();
+           //clearInterval(k);
+           console.log("STOPPED @   " + element.currentTime);
+           },1000);
+         },1500);
 
       };
 
