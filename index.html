@@ -18,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 7 ");
+  console.log("setting up audiocontext at ver 8 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -37,11 +37,11 @@
   function playTheTones(){
        element.currentTime = 2;
        //gainNode.gain.exponentialRampToValueAtTime(1.0, 2);
-       gainNode.gain.setTargetAtTime(1.0, 2);
+       gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.5);
 
        var g = setTimeout(function(){
          //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
-         gainNode.gain.setTargetAtTime(0.001, 1.4);
+         gainNode.gain.setTargetAtTime(0.001, audioContext.currentTime, 0.5);
          console.log("start Down @   " + element.currentTime);
          //clearTimeout(g);
        },2000);
