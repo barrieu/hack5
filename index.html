@@ -14,7 +14,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 27 ");
+  console.log("setting up audiocontext at ver 28 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -70,45 +70,7 @@
          },1100);
        },1500);
 
-       // // ******* The Third Tone ***********
-       // // **********************************
-       // setTimeout(function(){
-       //   element.currentTime = 102;
-       //   gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
-       //
-       //   var h = setTimeout(function(){
-       //     gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
-       //     console.log("start Down @   " + element.currentTime);
-       //   },800);
-       //
-       //   element.play();
-       //   console.log("PLAYING 102 now @   " + element.currentTime);
-       //   var j = setTimeout(function(){
-       //     element.pause();
-       //     console.log("STOPPED @   " + element.currentTime);
-       //   },1000);
-       // },3000);
-       //
-       // // ******* TheFourth Tone ***********
-       // // **********************************
-       // setTimeout(function(){
-       //   element.currentTime = 152;
-       //   gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
-       //
-       //   var h = setTimeout(function(){
-       //     gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
-       //     console.log("start Down @   " + element.currentTime);
-       //   },800);
-       //
-       //   element.play();
-       //   console.log("PLAYING 152 now @   " + element.currentTime);
-       //   var j = setTimeout(function(){
-       //     element.pause();
-       //     console.log("STOPPED @   " + element.currentTime);
-       //   },1000);
-       // },4500);
-
-      };
+  };
 
 
   </script>
