@@ -18,14 +18,14 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 7 ");
+  console.log("setting up audiocontext at ver 8 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
   const gainNode = audioContext.createGain();
 
   gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
-  element.connect(gainNode);
+  source.connect(gainNode);
   gainNode.connect(audioContext.destination);
 
   function dummyPress(){
