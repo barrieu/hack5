@@ -18,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 14 ");
+  console.log("setting up audiocontext at ver 15 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -38,14 +38,14 @@
        element.currentTime = 2;
        //gainNode.gain.exponentialRampToValueAtTime(1.0, 2);
        gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
-       gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime + 0.8, 1.0);
+       //gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime + 0.8, 1.0);
 
-       // var g = setTimeout(function(){
-       //   //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
-       //   gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
-       //   console.log("start Down @   " + element.currentTime);
-       //   //clearTimeout(g);
-       // },800);
+       var g = setTimeout(function(){
+         //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
+         gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
+         console.log("start Down @   " + element.currentTime);
+         //clearTimeout(g);
+       },800);
 
        element.play();
        console.log("PLAYING 2 now @   " + element.currentTime);
@@ -57,13 +57,14 @@
        setTimeout(function(){
          element.currentTime = 250;
          gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
+
          gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime + 0.8, 1.0);
-         // var h = setTimeout(function(){
-         //   //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
-         //   gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
-         //   console.log("start Down @   " + element.currentTime);
-         //   //clearTimeout(g);
-         // },800);
+         var h = setTimeout(function(){
+           //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
+           gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
+           console.log("start Down @   " + element.currentTime);
+           //clearTimeout(g);
+         },800);
 
          element.play();
          console.log("PLAYING 250 now @   " + element.currentTime);
