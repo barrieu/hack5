@@ -7,7 +7,8 @@
     <script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.0"></script>
     <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" /> -->
 
-    <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio>
+    <!-- <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio> -->
+    <audio id="audio" src="pure_400Hz_tone.ogg" preload="auto"></audio>
 
   </head>
 
@@ -18,7 +19,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 23 ");
+  console.log("setting up audiocontext at ver 24 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -38,41 +39,41 @@
 
     // ******* The First Tone ***********
     // **********************************
-       element.currentTime = 2;
+       source.currentTime = 2;
        gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
 
        var g = setTimeout(function(){
          gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
-         console.log("start Down @   " + element.currentTime);
+         console.log("start Down @   " + source.currentTime);
        },800);
 
        //element.play();
        source.mediaElement.play();
-       console.log("PLAYING 2 now @   " + element.currentTime);
+       console.log("PLAYING 2 now @   " + source.currentTime);
        var k = setTimeout(function(){
          //element.pause();
          source.mediaElement.pause();
-         console.log("STOPPED @   " + element.currentTime);
+         console.log("STOPPED @   " + source.currentTime);
        },1100);
 
        // ******* The Second Tone ***********
        // **********************************
        setTimeout(function(){
-         element.currentTime = 52;
+         source.currentTime = 52;
          gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
 
          var h = setTimeout(function(){
            gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
-           console.log("start Down @   " + element.currentTime);
+           console.log("start Down @   " + source.currentTime);
          },800);
 
          //element.play();
          source.mediaElement.play();
-         console.log("PLAYING 52 now @   " + element.currentTime);
+         console.log("PLAYING 52 now @   " + source.currentTime);
          var j = setTimeout(function(){
            //element.pause();
            source.mediaElement.pause();
-           console.log("STOPPED @   " + element.currentTime);
+           console.log("STOPPED @   " + source.currentTime);
          },1100);
        },1500);
 
