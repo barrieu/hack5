@@ -36,10 +36,12 @@
 
   function playTheTones(){
        element.currentTime = 2;
-       gainNode.gain.exponentialRampToValueAtTime(1.0, 2);
+       //gainNode.gain.exponentialRampToValueAtTime(1.0, 2);
+       gainNode.gain.setTargetAtTime(1.0, 2);
 
        var g = setTimeout(function(){
-         gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
+         //gainNode.gain.exponentialRampToValueAtTime(0.001, 1.4);
+         gainNode.gain.setTargetAtTime(0.001, 1.4);
          console.log("start Down @   " + element.currentTime);
          //clearTimeout(g);
        },2000);
