@@ -18,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 20 ");
+  console.log("setting up audiocontext at ver 21 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -49,8 +49,8 @@
        element.play();
        console.log("PLAYING 2 now @   " + element.currentTime);
        var k = setTimeout(function(){
-         //element.pause();
-         element.stop();
+         element.pause();
+         //element.stop();
          console.log("STOPPED @   " + element.currentTime);
        },1000);
 
@@ -68,8 +68,8 @@
          element.play();
          console.log("PLAYING 52 now @   " + element.currentTime);
          var j = setTimeout(function(){
-           //element.pause();
-           element.stop();
+           element.pause();
+           //element.stop();
            console.log("STOPPED @   " + element.currentTime);
          },1000);
        },1500);
