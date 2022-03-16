@@ -19,7 +19,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 25 ");
+  console.log("setting up audiocontext at ver 26 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -49,12 +49,12 @@
 
        //element.play();
        //source.mediaElement.play();
-       source.start();
+       source.mediaElement.start();
        console.log("PLAYING 2 now @   " + source.currentTime);
        var k = setTimeout(function(){
          //element.pause();
          //source.mediaElement.pause();
-         source.stop();
+         source.mediaElement.stop();
          console.log("STOPPED @   " + source.currentTime);
        },1100);
 
@@ -71,12 +71,12 @@
 
          //element.play();
          //source.mediaElement.play();
-         source.start();
+         source.mediaElement.start();
          console.log("PLAYING 52 now @   " + source.currentTime);
          var j = setTimeout(function(){
            //element.pause();
            //source.mediaElement.pause();
-           source.stop();
+           source.mediaElement.stop();
            console.log("STOPPED @   " + source.currentTime);
          },1100);
        },1500);
