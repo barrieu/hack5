@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>My experiment</title>
-    <script src="https://unpkg.com/jspsych@7.1.2"></script>
+    <!-- <script src="https://unpkg.com/jspsych@7.1.2"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.0"></script>
-    <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/jspsych@7.1.2/css/jspsych.css" rel="stylesheet" type="text/css" /> -->
 
     <audio id="audio" src="oodlesOfSounds.ogg" preload="auto"></audio>
 
@@ -18,7 +18,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver 22 ");
+  console.log("setting up audiocontext at ver 23 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -46,11 +46,12 @@
          console.log("start Down @   " + element.currentTime);
        },800);
 
-       element.play();
+       //element.play();
+       source.mediaElement.play();
        console.log("PLAYING 2 now @   " + element.currentTime);
        var k = setTimeout(function(){
-         element.pause();
-         //element.stop();
+         //element.pause();
+         source.mediaElement.pause();
          console.log("STOPPED @   " + element.currentTime);
        },1100);
 
@@ -65,11 +66,12 @@
            console.log("start Down @   " + element.currentTime);
          },800);
 
-         element.play();
+         //element.play();
+         source.mediaElement.play();
          console.log("PLAYING 52 now @   " + element.currentTime);
          var j = setTimeout(function(){
-           element.pause();
-           //element.stop();
+           //element.pause();
+           source.mediaElement.pause();
            console.log("STOPPED @   " + element.currentTime);
          },1100);
        },1500);
