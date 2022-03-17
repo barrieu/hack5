@@ -14,7 +14,7 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver (first) 2 ");
+  console.log("setting up audiocontext at ver (first) 3 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
@@ -37,10 +37,10 @@
     // ******* The First Tone ***********
     // **********************************
        source.currentTime = 2;
-       gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
+       gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.01);
 
        var g = setTimeout(function(){
-         gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.199);
+         gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.01);
          console.log("start Down @   " + source.currentTime);
        },700);
 
@@ -56,10 +56,10 @@
        // **********************************
        setTimeout(function(){
          source.currentTime = 52;
-         gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
+         gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.01);
 
          var h = setTimeout(function(){
-           gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.199);
+           gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.01);
            console.log("start Down @   " + source.currentTime);
          },700);
 
