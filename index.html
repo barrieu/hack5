@@ -14,15 +14,17 @@
   </body>
 
   <script>
-  console.log("setting up audiocontext at ver (first) 1 ");
+  console.log("setting up audiocontext at ver (first) 2 ");
   const audioContext = new AudioContext();
   const element = document.querySelector("audio");
   const source = audioContext.createMediaElementSource(element);
   const gainNode = audioContext.createGain();
 
-  gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+  //gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+
   source.connect(gainNode);
   gainNode.connect(audioContext.destination);
+  gainNode.gain.value = 0;
 
   function dummyPress(){
     audioContext.resume();
@@ -38,9 +40,9 @@
        gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
 
        var g = setTimeout(function(){
-         gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
+         gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.199);
          console.log("start Down @   " + source.currentTime);
-       },800);
+       },700);
 
        source.mediaElement.play();
 
@@ -57,9 +59,9 @@
          gainNode.gain.setTargetAtTime(1.0, audioContext.currentTime, 0.1);
 
          var h = setTimeout(function(){
-           gainNode.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.199);
+           gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.199);
            console.log("start Down @   " + source.currentTime);
-         },800);
+         },700);
 
          source.mediaElement.play();
 
